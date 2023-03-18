@@ -6,7 +6,7 @@ class Company
 {
 private:
 	string name;
-	Shop* shops;
+	Shop shops[MAX_SHOPS_NUMBER];
 	int shopsNumber;
 
 	//help functions
@@ -17,11 +17,9 @@ public:
 	// c'tor 
 	Company(); 
 	Company(const string& name);
-	~Company();
 
-	// getters
+	// getters                              (we dont want to add "getShops" function because the user will be able to modify the array if we do)
 	string getName() const;
-	Shop* getShops() const;
 	int getShopsNumeber() const;
 
 	// setters

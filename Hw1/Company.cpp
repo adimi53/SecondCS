@@ -5,7 +5,7 @@ using std::cout;
 // -------------------------------------------------------c'tor 
 Company::Company() : name("~"), shops(), shopsNumber(0) {};
 
-Company::Company(const string& name) : name(name), shops(new Shop[MAX_SHOPS_NUMBER]), shopsNumber(0) {
+Company::Company(const string& name) : name(name), shops(), shopsNumber(0) {
 	if (size(name) > MAX_NAME_LEN)
 	{
 		cout << "Company name legnth is too long\n";
@@ -13,20 +13,10 @@ Company::Company(const string& name) : name(name), shops(new Shop[MAX_SHOPS_NUMB
 	}
 }
 
-Company::~Company()
-{
-	delete[] shops;
-}
-
 // -------------------------------------------------------getters
 string Company::getName() const
 {
 	return name;
-}
-
-Shop* Company::getShops() const
-{
-	return shops;
 }
 
 int Company::getShopsNumeber() const
