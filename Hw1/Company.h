@@ -18,8 +18,9 @@ public:
 	Company(); 
 	Company(const string& name);
 
-	// getters                              (we dont want to add "getShops" function because the user will be able to modify the array if we do)
+	// getters                              
 	string getName() const;
+	const Shop* getShops() const;
 	int getShopsNumeber() const;
 
 	// setters

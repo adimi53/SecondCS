@@ -19,6 +19,11 @@ string Company::getName() const
 	return name;
 }
 
+const Shop* Company::getShops() const
+{
+	return shops;
+}
+
 int Company::getShopsNumeber() const
 {
 	return shopsNumber;
