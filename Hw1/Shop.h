@@ -13,21 +13,21 @@ private:
 
 public:
 	// c'tor
-	Shop();
-	Shop(const Manager& manager, const string& name, const Day& day, const bool& online);
+	Shop(); // default values
+	Shop(const Manager& manager, const string& name, const Day& day, const bool& online); // input values
 
 	//getters 
-	Manager getManager() const;
-	string getName() const;
-	Day getClosedDay() const;
-	bool getIsOnline() const;
+	Manager getManager() const; // get manager
+	string getName() const; // get name
+	Day getClosedDay() const; // get closed day
+	bool getIsOnline() const; // get if online
 
 	//setters 
-	void setManager(const Manager& manager);
-	void setName(const string& name);
-	void setClosedDay(const Day& day);
-	void setIsOnline(const bool& state);
+	void setManager(const Manager& manager); // set namager
+	void setName(const string& name); // set name
+	void setClosedDay(const Day& day); // set closed day
+	void setIsOnline(const bool& state); // set if online
 
 	//print 
-	void print();
+	void print() const; // prints the shop’s details
 };

@@ -14,21 +14,21 @@ private:
 
 public:
 	// c'tor
-	Manager();
-	Manager(const int& id, const string& name, const string& name2, const int& year);
+	Manager(); // default values
+	Manager(const int& id, const string& name, const string& name2, const int& year); // input values
 
 	// getters
-	int getId() const;
-	string getFirstName() const;
-	string getLastName() const;
-	int getBirthYear() const;
+	int getId() const; // get id
+	string getFirstName() const; // get first name
+	string getLastName() const; // get last name
+	int getBirthYear() const; // get birth year
 
 	// setters
-	void setId(const int& id_num);
-	void setFirstName(const string& name);
-	void setLastName(const string& name);
-	void setBirthYear(const int& year);
+	void setId(const int& id_num); // set id
+	void setFirstName(const string& name); // set first name if not too long
+	void setLastName(const string& name); // set last name if not too long
+	void setBirthYear(const int& year); // set birth year
 
 	// print
-	void print();
+	void print() const; // prints the manager’s details
 };
