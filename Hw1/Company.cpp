@@ -55,86 +55,69 @@ void Company::addShop(const Shop& shop) // add shop
 }
 
 // ---------------------------------------------------------help funcs
-void Company::sortByName(Shop* shops, const int size) // sort the shops array by lexicographic order of shops names 
+void Company::sortShops(Shop* shops, const int size, const bool byName) // sort the shops array by given parameter
 {
-	Shop temp;
-	int i, j;
+    Shop temp;
+    int i, j;
 
-	for (i = 0; i < size - 1; i++) // sort the array in a lexicographic order using bubble sort
-	{
-		for (j = i + 1; j < size; j++)
-		{
-			if (shops[i].getName() > shops[j].getName())
-			{
-				temp = shops[i]; // swap 
-				shops[i] = shops[j];
-				shops[j] = temp;
-			}
-		}
-	}
-	for (i = 0; i < size; i++) // print the shops
-	{
-		cout << "Shop #" << i + 1 << " :\n";
-		shops[i].print();
-		cout << "\n";
-	}
+    for (i = 0; i < size - 1; i++) // sort the array using bubble sort
+    {
+        for (j = i + 1; j < size; j++)
+        {
+            if (byName)
+            {
+                if (shops[i].getName() > shops[j].getName())
+                {
+                    temp = shops[i]; // swap 
+                    shops[i] = shops[j];
+                    shops[j] = temp;
+                }
+            }
+            else
+            {
+                if (shops[i].getClosedDay() > shops[j].getClosedDay())
+                {
+                    temp = shops[i]; // swap 
+                    shops[i] = shops[j];
+                    shops[j] = temp;
+                }
+            }
+        }
+    }
 }
 
-void Company::sortByDay(Shop* shops, const int size) // sort the shops array by shops closed day 
-{
-	Shop temp;
-	int i, j;
-
-	for (i = 0; i < size - 1; i++) // sort the array by closed day using bubble sort
-	{
-		for (j = i + 1; j < size; j++)
-		{
-			if (shops[i].getClosedDay() > shops[j].getClosedDay())
-			{
-				temp = shops[i]; // swap
-				shops[i] = shops[j];
-				shops[j] = temp;
-			}
-		}
-	}
-
-	for (i = 0; i < size; i++) // print the shops
-	{
-		cout << "Shop #" << i + 1 << " :\n";
-		shops[i].print();
-		cout << "\n";
-	}
-}
-
-// ---------------------------------------------------------print
 void Company::printShopsByDay() // print shops by closed day order
 {
-	if (!shopsNumber) cout << "There are no shops in this company.\n"; // no shops
-	else if (shopsNumber > 1) // several shops
-	{
-		cout << "There are " << shopsNumber << " shops in this company. The shops details are :\n";
-		sortByDay(shops, shopsNumber); // help fucn that sorts and prints the shops
-	}
-	else // only 1 shop, prints it
-	{
-		cout << "There is 1 shop in this company. The shops details are : \n";
-		cout << "Shop #1 : \n";
-		shops[0].print();
-	}
+    if (!shopsNumber) 
+    {
+        cout << "There are no shops in this company.\n"; // no shops
+        return;
+    }
+    
+    cout << "There are " << shopsNumber << " shops in this company. The shops details sorted by day are:\n";
+    sortShops(shops, shopsNumber, false); // sort the shops array by day
+    for (int i = 0; i < shopsNumber; i++) 
+    {
+        cout << "Shop #" << i + 1 << " :\n";
+        shops[i].print();
+        cout << "\n";
+    }
 }
 
-void Company::printShopsByName() // print shops by lexicographic order of names 
+void Company::printShopsByName() // print shops by lexicographic order of names
 {
-	if (!shopsNumber) cout << "There are no shops in this company.\n"; // no shops
-	else if (shopsNumber > 1) // several shops 
-	{
-		cout << "There are " << shopsNumber << " shops in this company. The shops details are :\n";
-		sortByName(shops, shopsNumber); // help func that sorts and prints the shops
-	}
-	else // only 1 shop, print it
-	{
-		cout << "There is 1 shop in this company. The shops details are : \n";
-		cout << "Shop #1 : \n";
-		shops[0].print();
-	}
+    if (!shopsNumber) 
+    {
+        cout << "There are no shops in this company.\n"; // no shops
+        return;
+    }
+    
+    cout << "There are " << shopsNumber << " shops in this company. The shops details sorted by name are:\n";
+    sortShops(shops, shopsNumber, true); // sort the shops array by name
+    for (int i = 0; i < shopsNumber; i++) 
+    {
+        cout << "Shop #" << i + 1 << " :\n";
+        shops[i].print();
+        cout << "\n";
+    }
 }
