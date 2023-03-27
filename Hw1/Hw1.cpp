@@ -3,8 +3,6 @@
 #include <string>
 int main()
 {
-
-	//freopen("myOutput.txt", "w", stdout); // saving the output to a file named "myOutput.txt" in the project directory; 
 	Manager manager1;
 	manager1.setId(1);
 	manager1.setFirstName("Yuval");

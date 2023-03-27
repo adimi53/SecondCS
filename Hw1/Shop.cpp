@@ -9,7 +9,7 @@ Shop::Shop() : manager(), name("~"), closedDay(Sunday), isOnline(0) {}; // defau
 Shop::Shop(const Manager& manager, const string& name, const Day& day, const bool& online) : manager(manager), name(name), closedDay(day), isOnline(online) {
 	if (size(name) > MAX_NAME_LEN) // check length
 	{
-		cout << "Shop name legnth is too long\n";
+		cout << "Shop name length is too long\n";
 		this->name = "~"; // if too long
 	}
 }
@@ -45,7 +45,7 @@ void Shop::setName(const string& name) // set name
 {
 	if (size(name) > MAX_NAME_LEN) // check length
 	{
-		cout << "Shop name legnth is too long\n"; 
+		cout << "Shop name length is too long\n"; 
 		this->name = "~"; // if too long
 	}
 	else this->name = name;
@@ -62,7 +62,7 @@ void Shop::setIsOnline(const bool& state) // set is online
 }
 
 // --------------------------------------------------------print
-void Shop::print() const // prints the shop’s details
+void Shop::print() const // prints the shops details
 {
 	string days[7] = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" }; // array to print the enum days
 	cout << "Printing shop:\n";

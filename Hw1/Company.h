@@ -9,9 +9,9 @@ private:
 	Shop shops[MAX_SHOPS_NUMBER];
 	int shopsNumber;
 
-	//help functions
-	void sortByName(Shop* shops, const int size); // sort the shops array by lexicographic order of shops names 
-	void sortByDay(Shop* shops, const int size); // sort the shops array by shops closed day 
+	//help function
+	void sortShops(Shop* shops, const int size, const string sortBy); // sorts the shops by either name or closed day 
+	void printTheArray(const Shop* shops, const int size) const; // prints the shops
 
 public:
 	// c'tor 

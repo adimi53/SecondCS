@@ -29,5 +29,5 @@ public:
 	void setIsOnline(const bool& state); // set if online
 
 	//print 
-	void print() const; // prints the shop’s details
+	void print() const; // prints the shops details
 };

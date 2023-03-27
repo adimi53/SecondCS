@@ -30,5 +30,5 @@ public:
 	void setBirthYear(const int& year); // set birth year
 
 	// print
-	void print() const; // prints the manager’s details
+	void print() const; // prints the managers details
 };
